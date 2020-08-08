@@ -12,6 +12,8 @@
 
 #### Start Master Server
 go build -buildmode=plugin ../mrapps/wc.go
+
+
 go run mrmaster.go pg-*.txt
 
 #### Start worker (as many processes as you want)
