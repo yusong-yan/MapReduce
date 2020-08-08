@@ -1,6 +1,6 @@
 # MapReduce_System_Implementation
 ### In this fault tolerant distributed system, a master server hands out tasks to workers and copes with failed workers, and worker processes will calls application Map and Reduce functions and handles reading and writing files. 
-#### Master : src/mr/master.go
+#### Master : https://github.com/yusong-yan/MapReduce_System_Implementation/blob/master/src/mr/master.go
 ##### Link to MapReduce Paper https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf
 ##### In this example, 3 computer start worker process and send message through rpc to the master machine
 <img width="500" alt="Screen Shot 2020-08-07 at 5 21 07 PM" src="https://user-images.githubusercontent.com/46516278/89698430-02374900-d8d6-11ea-84a5-fce392d21435.png">
