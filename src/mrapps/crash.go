@@ -1,21 +1,16 @@
 package main
 
-//
-// a MapReduce pseudo-application that sometimes crashes,
-// and sometimes takes a long time,
-// to test MapReduce's ability to recover.
-//
-// go build -buildmode=plugin crash.go
-//
+import (
+	crand "crypto/rand"
+	"math/big"
+	"os"
+	"sort"
+	"strconv"
+	"strings"
+	"time"
 
-import "../mr"
-import crand "crypto/rand"
-import "math/big"
-import "strings"
-import "os"
-import "sort"
-import "strconv"
-import "time"
+	"../mr"
+)
 
 func maybeCrash() {
 	max := big.NewInt(1000)

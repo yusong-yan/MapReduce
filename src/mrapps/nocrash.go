@@ -1,18 +1,15 @@
 package main
 
-//
-// same as crash.go but doesn't actually crash.
-//
-// go build -buildmode=plugin nocrash.go
-//
+import (
+	crand "crypto/rand"
+	"math/big"
+	"os"
+	"sort"
+	"strconv"
+	"strings"
 
-import "../mr"
-import crand "crypto/rand"
-import "math/big"
-import "strings"
-import "os"
-import "sort"
-import "strconv"
+	"../mr"
+)
 
 func maybeCrash() {
 	max := big.NewInt(1000)

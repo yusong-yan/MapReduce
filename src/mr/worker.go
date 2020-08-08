@@ -33,9 +33,7 @@ func ihash(key string) int {
 	return int(h.Sum32() & 0x7fffffff)
 }
 
-//
 // main/mrworker.go calls this function.
-//
 func Worker(mapf func(string, string) []KeyValue,
 	reducef func(string, []string) string) {
 	for {
@@ -147,8 +145,6 @@ func createJosn(kvSli []KeyValue, mapNum int, reduceNum int) string {
 	return fileName
 }
 
-// example function to show how to make an RPC call to the master.
-// the RPC argument and reply types are defined in rpc.go.
 func CallForTask(MessageType int, fileName string) MyReply {
 	// declare an argument structure.
 	args := MyArgs{}
@@ -164,8 +160,6 @@ func CallForTask(MessageType int, fileName string) MyReply {
 }
 
 // send an RPC request to the master, wait for the response.
-// usually returns true.
-// returns false if something goes wrong.
 func call(rpcname string, args interface{}, reply interface{}) bool {
 	// c, err := rpc.DialHTTP("tcp", "127.0.0.1"+":1234")
 	sockname := masterSock()

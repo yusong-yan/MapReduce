@@ -81,6 +81,7 @@ func (m *Master) HandleCallForTask(args *MyArgs, reply *MyReply) error {
 	return nil
 }
 
+//fualt tolerant
 func (m *Master) checkCrash(taskType, file string) {
 	ticker := time.NewTicker(10 * time.Second)
 	defer ticker.Stop()
@@ -121,11 +122,6 @@ func (m *Master) checkCrash(taskType, file string) {
 	}
 }
 
-// func DoneControl(start string) bool
-
-//
-// start a thread that listens for RPCs from worker.go
-//
 func (m *Master) checkMapStatus() bool {
 	m.RWLock.RLock()
 	defer m.RWLock.RUnlock()
@@ -157,6 +153,7 @@ func (m *Master) HandleCallForInterFile(args *MyIntermediateFile, reply *MyReply
 	return nil
 }
 
+//a thread to generate Task
 func (m *Master) generateTask() {
 	for k, v := range m.BeginningFileStatus {
 		if v == UnAllocated {
@@ -184,6 +181,7 @@ func (m *Master) generateTask() {
 
 }
 
+//listen to work
 func (m *Master) server() {
 	mapTask = make(chan string, 5)
 	reduceTask = make(chan int, 5)
@@ -202,7 +200,7 @@ func (m *Master) server() {
 
 // main/mrmaster.go calls Done() periodically to find out
 // if the entire job has finished.
-//
+
 func (m *Master) Done() bool {
 	ret := false
 	ret = m.ReduceFinished
@@ -212,7 +210,6 @@ func (m *Master) Done() bool {
 // create a Master.
 // main/mrmaster.go calls this function.
 // nReduce is the number of reduce tasks to use.
-//
 func MakeMaster(files []string, nReduce int) *Master {
 	m := Master{}
 	m.BeginningFile = files

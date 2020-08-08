@@ -1,18 +1,14 @@
 package main
 
-//
-// a MapReduce pseudo-application to test that workers
-// execute reduce tasks in parallel.
-//
-// go build -buildmode=plugin rtiming.go
-//
+import (
+	"fmt"
+	"io/ioutil"
+	"os"
+	"syscall"
+	"time"
 
-import "../mr"
-import "fmt"
-import "os"
-import "syscall"
-import "time"
-import "io/ioutil"
+	"../mr"
+)
 
 func nparallel(phase string) int {
 	// create a file so that other workers will see that
@@ -24,8 +20,6 @@ func nparallel(phase string) int {
 		panic(err)
 	}
 
-	// are any other workers running?
-	// find their PIDs by scanning directory for mr-worker-XXX files.
 	dd, err := os.Open(".")
 	if err != nil {
 		panic(err)

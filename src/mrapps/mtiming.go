@@ -1,20 +1,16 @@
 package main
 
-//
-// a MapReduce pseudo-application to test that workers
-// execute map tasks in parallel.
-//
-// go build -buildmode=plugin mtiming.go
-//
+import (
+	"fmt"
+	"io/ioutil"
+	"os"
+	"sort"
+	"strings"
+	"syscall"
+	"time"
 
-import "../mr"
-import "strings"
-import "fmt"
-import "os"
-import "syscall"
-import "time"
-import "sort"
-import "io/ioutil"
+	"../mr"
+)
 
 func nparallel(phase string) int {
 	// create a file so that other workers will see that
