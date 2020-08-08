@@ -19,5 +19,5 @@ go run mrmaster.go pg-*.txt
 #### Start worker (as many processes as you want)
  go run mrworker.go wc.so
  
-#### Check out put
+#### Check output
 cat mr-out-* | sort | more
