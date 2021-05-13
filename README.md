@@ -15,7 +15,7 @@ go build -buildmode=plugin ../mrapps/wc.go
 
 go run mrmaster.go pg-*.txt
 
-#### Start worker (as many processes as you want)
+#### Start worker
  go run mrworker.go wc.so
  
 #### Check output
