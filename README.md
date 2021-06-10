@@ -1,4 +1,4 @@
-# MapReduce_System_Implementation
+# MapReduce
 ### a master server hands out tasks to workers and copes with failed workers [Master File](src/mr/master.go), and worker processes will calls application Map and Reduce functions and handles reading and writing files[Worker File](src/mr/worker.go).
 Link to MapReduce Paper https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf<br/><br/>
 ### 3 computer start worker process and send message through rpc to the master machine<br/>
