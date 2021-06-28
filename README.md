@@ -10,13 +10,13 @@ Paper https://static.googleusercontent.com/media/research.google.com/en//archive
 
 
 #### Start Master Server
-go build -buildmode=plugin ../mrapps/wc.go
+`go build -buildmode=plugin ../mrapps/wc.go`
 
 
-go run mrmaster.go pg-*.txt
+`go run mrmaster.go pg-*.txt`
 
 #### Start worker
- go run mrworker.go wc.so
+ `go run mrworker.go wc.so`
  
 #### Check output
-cat mr-out-* | sort | more
+`cat mr-out-* | sort | more`
